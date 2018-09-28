@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+
+struct mystruct{
+    
+    mystruct() = default;
+    int x=0;
+    int y=0;
+
+};
+
+
+//class is always PRIVATE in default. not like struct, which ny default, set every variable public
+//
+class myclass{
+    
+    //default counstruct
+    myclass(){}
+    
+    //contructor
+    myclass(int i,int j) : x(i),y(j) {update_area();}
+    
+public:
+    int getx() {return x;}
+    int gety() {return y;}
+    void setx(int newx) {x=newx; area=x*y;}
+    void sety(int newy) {y=newy; area=x*y;}
+private:
+    void update_area() {area=x*y;}
+private:
+    int x=10;
+    int y=10;
+    int area=x*y;
+
+};
+// ~point(){} 
+//destrcutor
+
+int main()
+{
+    mystruct object01 ;
+    object01.x=2;
+    object01.y=2;
+    cout<<"{"<<object01.x<<","<<object01.y<<"}\n";
+
+
+    myclass class_object;
+    cout<<"("<<class_object.getx()<<","<<class_object.gety()<<"}\n";
+    return 0;
+}
